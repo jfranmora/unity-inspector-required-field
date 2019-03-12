@@ -1,7 +1,7 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-namespace JfranMora.Editor
+namespace JfranMora.RequiredField.Editor
 {
 	public class SceneValidatorWindow : EditorWindow
 	{

@@ -5,59 +5,65 @@ using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-public static class SceneValidator
+namespace JfranMora.RequiredField.Editor
 {
-	private static List<Type> observedTypesDB = new List<Type>();
-
-	public static void Init()
+	public static class SceneValidator
 	{
-		UpdateObservedTypesDB();
-	}
+		private static List<Type> observedTypesDB = new List<Type>();
 
-	public static bool IsValidScene()
-	{
-		bool isValid = true;
-
-		var objects = Utils.GetObjectsFromTypeList(observedTypesDB);
-		foreach (var obj in objects)
+		public static void Init()
 		{
-			if (!Utils.IsValidObject(obj))
+			UpdateObservedTypesDB();
+		}
+		
+		public static bool ValidateScene()
+		{
+			bool isValid = true;
+
+			var objects = Utils.GetObjectsFromTypeList(observedTypesDB);
+			for (var i = 0; i < objects.Count; i++)
 			{
-				EditorGUIUtility.PingObject(obj);
+				var obj = objects[i];				
+				if (!Utils.IsValidObject(obj))
+				{
+					EditorGUIUtility.PingObject(obj);
 
-				Debug.LogErrorFormat("<b>[FieldValidator]</b> Validation error: {0}", obj);
-				isValid = false;
+					Debug.LogErrorFormat("<b>[FieldValidator]</b> Validation error: {0}", obj);
+					isValid = false;
+				}
+				
+				// TODO: Add progress bar?
 			}
-		}
 
-		if (!isValid)
-		{
-			Debug.LogError("<b>[FieldValidator]</b> Scene is not valid!");
-		}
-
-		Debug.LogWarningFormat("<b>[FieldValidator]</b> Checked {0} components", objects.Count);
-
-		return isValid;
-	}
-
-	public static List<Object> GetNotValidObjects()
-	{
-		var result = new List<Object>();
-
-		var objects = Utils.GetObjectsFromTypeList(observedTypesDB);
-		foreach (var obj in objects)
-		{
-			if (!Utils.IsValidObject(obj))
+			if (!isValid)
 			{
-				result.Add(obj);
+				Debug.LogError("<b>[FieldValidator]</b> Scene is not valid!");
 			}
+
+			Debug.LogWarningFormat("<b>[FieldValidator]</b> Checked {0} components", objects.Count);
+
+			return isValid;
 		}
 
-		return result;
-	}
+		public static List<Object> GetNotValidObjects()
+		{
+			var result = new List<Object>();
 
-	private static void UpdateObservedTypesDB()
-	{
-		observedTypesDB = Utils.GetTypesWithAttribute<RequiredFieldAttribute>();
+			var objects = Utils.GetObjectsFromTypeList(observedTypesDB);
+			foreach (var obj in objects)
+			{
+				if (!Utils.IsValidObject(obj))
+				{
+					result.Add(obj);
+				}
+			}
+
+			return result;
+		}
+
+		private static void UpdateObservedTypesDB()
+		{
+			observedTypesDB = Utils.GetTypesWithAttribute<RequiredFieldAttribute>();
+		}
 	}
 }

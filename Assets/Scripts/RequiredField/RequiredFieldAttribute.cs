@@ -1,9 +1,10 @@
 ﻿using System;
+using UnityEngine;
 
-namespace JfranMora
+namespace JfranMora.RequiredField
 {
 	[AttributeUsage(AttributeTargets.Field)]
-	public class RequiredFieldAttribute : Attribute
+	public class RequiredFieldAttribute : PropertyAttribute
 	{
 	}
 }

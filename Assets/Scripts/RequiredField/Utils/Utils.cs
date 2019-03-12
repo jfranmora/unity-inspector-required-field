@@ -5,7 +5,7 @@ using System.Reflection;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JfranMora
+namespace JfranMora.RequiredField
 {
 	public static class Utils
 	{
@@ -25,7 +25,7 @@ namespace JfranMora
 
 			return true;
 		}
-		
+
 		public static List<Object> GetObjectsFromTypeList(IEnumerable<Type> types)
 		{
 			var result = new List<Object>();
@@ -37,7 +37,7 @@ namespace JfranMora
 
 			return result;
 		}
-		
+
 		public static List<Type> GetTypesWithAttribute<T>() where T : Attribute
 		{
 			var result = new List<Type>();
@@ -58,7 +58,9 @@ namespace JfranMora
 
 		private static IEnumerable<FieldInfo> GetFieldsWithAttribute(Type classType, Type attributeType)
 		{
-			return classType.GetFields().Where(fieldInfo => fieldInfo.GetCustomAttributes(attributeType, false).Length > 0);
+			return classType
+				.GetFields()
+				.Where(fieldInfo => fieldInfo.GetCustomAttributes(attributeType, false).Length > 0);
 		}
 	}
 }

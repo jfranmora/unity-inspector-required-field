@@ -1,6 +1,6 @@
 ﻿using UnityEditor;
 
-namespace JfranMora.Editor
+namespace JfranMora.RequiredField.Editor
 {
 	public static class RequiredFieldEditor
 	{
@@ -18,7 +18,7 @@ namespace JfranMora.Editor
 			// Detect when Unity Editor is going to Play mode
 			if (EditorApplication.isPlayingOrWillChangePlaymode && !EditorApplication.isPlaying)
 			{
-				if (!SceneValidator.IsValidScene())
+				if (!SceneValidator.ValidateScene())
 				{
 					EditorApplication.isPlaying = false;
 				}
