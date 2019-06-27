@@ -6,9 +6,8 @@ Custom attribute to cancel play mode if a property with `[RequiredField]` attrib
 Add `[RequiredField]` to required fields.
 
 ``` C#
-using System.Collections.Generic;
-using JfranMora.Inspector;
 using UnityEngine;
+using JfranMora.Inspector;
 
 public class RequiredFieldTest001 : MonoBehaviour
 {
