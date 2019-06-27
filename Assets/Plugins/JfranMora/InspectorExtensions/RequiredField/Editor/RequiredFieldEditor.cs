@@ -1,6 +1,6 @@
-﻿using UnityEditor;
+using UnityEditor;
 
-namespace JfranMora.RequiredField.Editor
+namespace JfranMora.Inspector.Editor
 {
 	public static class RequiredFieldEditor
 	{

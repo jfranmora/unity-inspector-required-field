@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using UnityEngine;
 
-namespace JfranMora.RequiredField
+namespace JfranMora.Inspector
 {
 	[AttributeUsage(AttributeTargets.Field)]
 	public class RequiredFieldAttribute : PropertyAttribute

@@ -1,11 +1,11 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using JfranMora;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
 
-namespace JfranMora.RequiredField.Editor
+namespace JfranMora.Inspector.Editor
 {
 	public static class SceneValidator
 	{

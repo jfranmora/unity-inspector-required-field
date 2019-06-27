@@ -1,7 +1,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace JfranMora.RequiredField.Editor
+namespace JfranMora.Inspector.Editor
 {
 	[CustomPropertyDrawer(typeof(RequiredFieldAttribute))]
 	public class RequiredFieldDrawer : PropertyDrawer
