@@ -23,3 +23,8 @@ public class RequiredFieldTest001 : MonoBehaviour
 	[RequiredField] public Vector3 vector3;
 }
 ```
+
+#### Tasks
+- [X] Simple fields
+- [ ] Array/Lists
+- [ ] Nested struct/object
