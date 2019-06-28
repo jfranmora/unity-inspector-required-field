@@ -1,8 +1,15 @@
 # [Unity] Inspector Extensions - Required Field
-
 Custom attribute to cancel play mode if a property with `[RequiredField]` attribute is null. (In current scene) 
 
-#### How to use
+## Installation (Manual)
+Download the release https://github.com/jfranmora/unity-required-field/archive/0.1.0.zip and unzip it in the project.
+
+## Installation (UPM)
+Add to `manifest.json` as dependency the following line:
+
+`"com.jfranmora.inspector.required-field": "https://github.com/jfranmora/unity-required-field.git#upm"`
+
+## How to use
 Add `[RequiredField]` to required fields.
 
 ``` C#
@@ -24,7 +31,7 @@ public class RequiredFieldTest001 : MonoBehaviour
 }
 ```
 
-#### Tasks
+## TODO
 - [X] Simple fields
-- [ ] Array/Lists
-- [ ] Nested struct/object
+- [ ] Add compatibility with Array/Lists
+- [ ] Add compatibility with Nested struct/object
