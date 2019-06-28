@@ -1,0 +1,16 @@
+{
+    "name": "JfranMora.Inspector.RequireField.Editor",
+    "references": [
+        "JfranMora.Inspector.RequireField"
+    ],
+    "optionalUnityReferences": [],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": []
+}
